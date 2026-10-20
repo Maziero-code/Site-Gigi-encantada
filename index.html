@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#171219">
+<title>Gigi Mundo Encantado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ============ MENU ============ -->
+  <section class="screen active" id="screen-menu">
+    <div class="stars-bg"></div>
+    <header class="topbar">
+      <button id="btnMusic" class="stat" style="cursor:pointer; font-size: 1.2rem; padding: 5px 10px;" onclick="toggleMusic()">🎵</button>
+      <div class="brand-small">Gigi Mundo Encantado</div>
+      <div class="stats">
+        <div class="stat coin"><span class="ic">🪙</span><b class="coin-val">0</b></div>
+        <div class="stat star"><span class="ic">⭐</span><b class="star-val">0</b></div>
+      </div>
+    </header>
+    <main class="menu-main">
+      <div class="logo-wrap">
+        <h1 class="logo">Gigi<span>Mundo Encantado</span></h1>
+        <p class="tagline">Seu encanto. Seu estilo.</p>
+      </div>
+      <nav class="menu-grid">
+        <button class="menu-card" data-go="closet">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7.5a2 2 0 1 1 2 2c-.7.5-2 1-2 2v.5"/><path d="M12 12 2 18.5V20h20v-1.5L12 12"/></svg></div>
+          <b>Closet Studio</b>
+        </button>
+        <button class="btn gold" id="btnRunway" style="position:absolute; bottom:20px; left:20px; z-index:10; font-size:0.8rem;">👠 Desfilar</button>
+        <button class="menu-card" data-go="beauty">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="11" width="8" height="10" rx="2"/><path d="M9 11V6l3-3 3 3v5"/><path d="M10 8h4"/></svg></div>
+          <b>Beauty Lab</b>
+        </button>
+        <button class="menu-card" data-go="room">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><rect x="2" y="12" width="20" height="6" rx="1.5"/><path d="M5 18v2M19 18v2"/></svg></div>
+          <b>Dream Room</b>
+        </button>
+        <button class="menu-card" data-go="challenges">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></div>
+          <b>Desafios</b>
+        </button>
+        <button class="menu-card" data-go="shop">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l1 12H4L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></div>
+          <b>Loja</b>
+        </button>
+      </nav>
+    </main>
+    <footer class="menu-footer">
+      <button class="btn ghost" id="btnSaveMenu">💾 Salvar</button>
+      <button class="btn ghost danger" id="btnReset">↻ Recomeçar</button>
+    </footer>
+  </section>
+
+  <!-- ============ CLOSET ============ -->
+  <section class="screen" id="screen-closet">
+    <header class="topbar">
+      <button class="btn-back" data-go="menu">←</button>
+      <div class="screen-title">Closet Studio</div>
+      <div class="stats">
+        <div class="stat coin"><span class="ic">🪙</span><b class="coin-val">0</b></div>
+        <div class="stat star"><span class="ic">⭐</span><b class="star-val">0</b></div>
+      </div>
+    </header>
+    <div class="studio">
+      <div class="stage"><div class="gigi-wrap" id="closetPreview"></div></div>
+      <aside class="panel">
+        <div class="tabs" id="closetTabs"></div>
+        <div class="items" id="closetItems"></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ BEAUTY ============ -->
+  <section class="screen" id="screen-beauty">
+    <header class="topbar">
+      <button class="btn-back" data-go="menu">←</button>
+      <div class="screen-title">Beauty Lab</div>
+      <div class="stats">
+        <div class="stat coin"><span class="ic">🪙</span><b class="coin-val">0</b></div>
+        <div class="stat star"><span class="ic">⭐</span><b class="star-val">0</b></div>
+      </div>
+    </header>
+    <div class="studio">
+      <div class="stage"><div class="gigi-wrap" id="beautyPreview"></div></div>
+      <aside class="panel">
+        <div class="tabs" id="beautyTabs"></div>
+        <div class="items" id="beautyItems"></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ ROOM ============ -->
+  <section class="screen" id="screen-room">
+    <header class="topbar">
+      <button class="btn-back" data-go="menu">←</button>
+      <div class="screen-title">Dream Room</div>
+      <div class="stats">
+        <div class="stat coin"><span class="ic">🪙</span><b class="coin-val">0</b></div>
+        <div class="stat star"><span class="ic">⭐</span><b class="star-val">0</b></div>
+      </div>
+    </header>
+    <div class="room-layout">
+      <div class="room-wrap">
+        <div class="room-stage">
+          <div class="room" id="roomEl">
+            <div class="room-wall" id="roomWall"></div>
+            <div class="room-floor" id="roomFloor"></div>
+            <div id="roomFurni"></div>
+          </div>
+        </div>
+        <div class="room-tools">
+          <div class="tool-group">
+            <label>Papel de parede</label>
+            <div class="swatches" id="wallSwatches"></div>
+          </div>
+          <div class="tool-group">
+            <label>Piso</label>
+            <div class="swatches" id="floorSwatches"></div>
+          </div>
+        </div>
+      </div>
+      <aside class="panel">
+        <div class="tabs"><div class="tab active">Móveis & Decoração</div></div>
+        <div class="items" id="furniItems"></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ CHALLENGES ============ -->
+  <section class="screen" id="screen-challenges">
+    <header class="topbar">
+      <button class="btn-back" data-go="menu">←</button>
+      <div class="screen-title">Desafios Fashion</div>
+      <div class="stats">
+        <div class="stat coin"><span class="ic">🪙</span><b class="coin-val">0</b></div>
+        <div class="stat star"><span class="ic">⭐</span><b class="star-val">0</b></div>
+      </div>
+    </header>
+    <div class="chal-grid" id="chalGrid"></div>
+  </section>
+
+  <!-- ============ SHOP ============ -->
+  <section class="screen" id="screen-shop">
+    <header class="topbar">
+      <button class="btn-back" data-go="menu">←</button>
+      <div class="screen-title">Loja</div>
+      <div class="stats">
+        <div class="stat coin"><span class="ic">🪙</span><b class="coin-val">0</b></div>
+        <div class="stat star"><span class="ic">⭐</span><b class="star-val">0</b></div>
+      </div>
+    </header>
+    <div class="shop-wrap">
+      <div class="tabs" id="shopTabs"></div>
+      <div class="shop-grid" id="shopGrid"></div>
+    </div>
+  </section>
+
+</div>
+
+<div class="toasts" id="toasts"></div>
+<div class="modal-bg" id="modalBg"><div class="modal" id="modalBox"></div></div>
+<div class="confetti" id="confetti"></div>
+
+<script src="js/utils.js"></script>
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/state.js"></script>
+<script src="js/wardrobe.js"></script>
+<script src="js/makeup.js"></script>
+<script src="js/decoration.js"></script>
+<script src="js/challenges.js"></script>
+<script src="js/shop.js"></script>
+<script src="js/main.js"></script> <!-- Main sempre por último! -->
+
+<!-- Mascote Mágico -->
+<div id="fairy" style="position:fixed; top:50%; left:50%; pointer-events:none; z-index:999; transition: top 0.1s ease-out, left 0.1s ease-out; filter: drop-shadow(0 0 10px #FFD83D);">
+  <svg width="30" height="30" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="15" fill="#FFF"/>
+    <circle cx="50" cy="50" r="10" fill="#FFD83D"/>
+    <path d="M50 20 Q60 50 50 80 Q40 50 50 20" fill="#FFD83D" opacity="0.6"/>
+    <path d="M20 50 Q50 60 80 50 Q50 40 20 50" fill="#FFD83D" opacity="0.6"/>
+  </svg>
+</div>
+</body>
+</html>
